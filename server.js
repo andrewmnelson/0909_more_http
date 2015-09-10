@@ -63,5 +63,8 @@ var serverFunction = function(req, resp) {
 
 };
 
+// server won't work if dataFiles directory doesn't exist, so create if we can
+try { fs.mkdirSync(__dirname + '/dataFiles'); } catch(e) { }
+
 var server = http.createServer(serverFunction);
 server.listen(3000);
